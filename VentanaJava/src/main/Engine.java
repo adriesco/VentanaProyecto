@@ -27,7 +27,7 @@ public class Engine extends JFrame implements ActionListener {
 	 * Constructora
 	 */
 	public Engine() {
-	
+
 		contentPanel = new JPanel(new BorderLayout());
 		displayPanel = new JPanel();
 		buttonPanel = new JPanel(new GridLayout(4, 4, 3, 3));
@@ -86,24 +86,49 @@ public class Engine extends JFrame implements ActionListener {
 		setSettings();
 		addActionEvent();
 	}
-	
+
+	/**
+	 * Metodo que añade un actionListener a todos los componentes menos al frame
+	 */
 	private void addActionEvent() {
-		// TODO Auto-generated method stub
-		
+
 	}
-	
+
+	/**
+	 * Metodo donde se crea toda la ventana
+	 */
 	private void setSettings() {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
+	/**
+	 * Metodo que dependiendo del operador realiza una operacion o otra
+	 */
+	public void operation() {
+		switch (operation) {
+		case '+':
+			result = num1 + num2;
+			break;
+		case '-':
+			result = num1 - num2;
+			break;
+		case 'x':
+			result = num1 * num2;
+			break;
+		case '/':
+			result = num1 / num2;
+			break;
+		}
+	}
+
 	public void setFeaturesButton(JButton _button, ButtonType _type) {
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }
