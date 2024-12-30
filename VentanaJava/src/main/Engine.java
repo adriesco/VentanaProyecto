@@ -91,7 +91,10 @@ public class Engine extends JFrame implements ActionListener {
 	 * Metodo que añade un actionListener a todos los componentes menos al frame
 	 */
 	private void addActionEvent() {
-
+		JButton[] buttons = { n0, n1, n2, n3, n4, n5, n6, n7, n8, n9, divide, multiply, subtract, add, equal, reset };
+		for (JButton button : buttons) {
+			button.addActionListener(this);
+		}
 	}
 
 	/**
