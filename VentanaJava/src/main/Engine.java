@@ -1,6 +1,7 @@
 package main;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -105,22 +106,40 @@ public class Engine extends JFrame implements ActionListener {
 		case '-':
 			result = num1 - num2;
 			break;
-		case 'x':
+		case '×':
 			result = num1 * num2;
 			break;
-		case '/':
+		case '÷':
 			result = num1 / num2;
 			break;
 		}
 	}
 
+	/**
+	 * Metodo que aplica colores a los botones
+	 * 
+	 * @param _button
+	 * @param _type
+	 */
 	public void setFeaturesButton(JButton _button, ButtonType _type) {
+		switch (_type) {
+		case REGULAR:
+			_button.setFont(new Font("Arial", Font.PLAIN, 14));
+			_button.setFocusPainted(false);
+			_button.setBackground(Color.LIGHT_GRAY);
+			break;
+		case OPERATOR:
+			_button.setFont(new Font("Arial", Font.BOLD, 16));
+			_button.setFocusPainted(false);
+			_button.setBackground(Color.ORANGE);
+			_button.setForeground(Color.WHITE);
+			break;
+		}
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-
+		
 	}
-
 }
