@@ -8,6 +8,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -56,10 +57,13 @@ public class Engine extends JFrame implements ActionListener {
 		displayPanel = new JPanel(new BorderLayout());
 		buttonPanel = new JPanel(new GridLayout(4, 4, 5, 5));
 
-		display = new JTextField(20);
-		display.setEditable(false);
-		display.setFont(new Font("Verdana", Font.BOLD, 18));
-		displayPanel.add(display);
+		display = new JTextField();
+        display.setEditable(false);
+        display.setFont(new Font("Verdana", Font.BOLD, 18));
+        display.setHorizontalAlignment(JTextField.RIGHT);
+        display.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
+        display.setBackground(new Color(230, 230, 230));
+        displayPanel.add(display, BorderLayout.CENTER);
 
 		n0 = new JButton("0");
 		n1 = new JButton("1");
