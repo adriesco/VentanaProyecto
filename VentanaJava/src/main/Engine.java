@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 public class Engine extends JFrame implements ActionListener {
 	private JPanel contentPanel, displayPanel, buttonPanel;
 	private JTextField display;
-	private JButton n0, n1, n2, n3, n4, n5, n6, n7, n8, n9, divide, multiply, subtract, add, equal, reset;
+	private JButton n0, n1, n2, n3, n4, n5, n6, n7, n8, n9, dividir, multiplicar, restar, suma, igual, reset;
 
 	private enum ButtonType {
 		REGULAR, OPERATOR
@@ -37,7 +37,8 @@ public class Engine extends JFrame implements ActionListener {
 	 * Metodo que añade un actionListener a todos los componentes menos al frame.
 	 */
 	private void addActionEvent() {
-		JButton[] buttons = { n0, n1, n2, n3, n4, n5, n6, n7, n8, n9, divide, multiply, subtract, add, equal, reset };
+		JButton[] buttons = { n0, n1, n2, n3, n4, n5, n6, n7, n8, n9, dividir, multiplicar, restar, suma, igual,
+				reset };
 		for (JButton button : buttons) {
 			button.addActionListener(this);
 		}
@@ -47,63 +48,63 @@ public class Engine extends JFrame implements ActionListener {
 	 * Metodo donde se crea toda la ventana
 	 */
 	private void setSettings() {
-	    this.setTitle("Mi Calculadora");
-	    this.setSize(350, 300);
-	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    this.setLocationRelativeTo(null);
+		this.setTitle("Mi Calculadora");
+		this.setSize(350, 300);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setLocationRelativeTo(null);
 
-	    contentPanel = new JPanel(new BorderLayout());
-	    displayPanel = new JPanel(new BorderLayout());
-	    displayPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20)); 
-	    buttonPanel = new JPanel(new GridLayout(4, 4, 5, 5));
+		contentPanel = new JPanel(new BorderLayout());
+		displayPanel = new JPanel(new BorderLayout());
+		displayPanel.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
+		buttonPanel = new JPanel(new GridLayout(4, 4, 5, 5));
 
-	    display = new JTextField();
-	    display.setEditable(false);
-	    display.setFont(new Font("Verdana", Font.BOLD, 18));
-	    display.setHorizontalAlignment(JTextField.LEFT);
-	    display.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
-	    display.setBackground(new Color(230, 230, 230));
+		display = new JTextField();
+		display.setEditable(false);
+		display.setFont(new Font("Verdana", Font.BOLD, 18));
+		display.setHorizontalAlignment(JTextField.LEFT);
+		display.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 2));
+		display.setBackground(new Color(230, 230, 230));
 
-	    JPanel displayContainer = new JPanel(new BorderLayout());
-	    displayContainer.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5)); 
-	    displayContainer.add(display, BorderLayout.CENTER);
-	    
-	    displayPanel.add(displayContainer, BorderLayout.CENTER);
+		JPanel displayContainer = new JPanel(new BorderLayout());
+		displayContainer.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+		displayContainer.add(display, BorderLayout.CENTER);
 
-	    n0 = new JButton("0");
-	    n1 = new JButton("1");
-	    n2 = new JButton("2");
-	    n3 = new JButton("3");
-	    n4 = new JButton("4");
-	    n5 = new JButton("5");
-	    n6 = new JButton("6");
-	    n7 = new JButton("7");
-	    n8 = new JButton("8");
-	    n9 = new JButton("9");
-	    divide = new JButton("÷");
-	    multiply = new JButton("×");
-	    subtract = new JButton("−");
-	    add = new JButton("+");
-	    equal = new JButton("=");
-	    reset = new JButton("AC");
+		displayPanel.add(displayContainer, BorderLayout.CENTER);
 
-	    JButton[] buttons = { n7, n8, n9, divide, n4, n5, n6, multiply, n1, n2, n3, subtract, reset, n0, equal, add };
-	    for (JButton button : buttons) {
-	        if (button == divide || button == multiply || button == subtract || button == add || button == equal) {
-	            setFeaturesButton(button, ButtonType.OPERATOR);
-	        } else {
-	            setFeaturesButton(button, ButtonType.REGULAR);
-	        }
+		n0 = new JButton("0");
+		n1 = new JButton("1");
+		n2 = new JButton("2");
+		n3 = new JButton("3");
+		n4 = new JButton("4");
+		n5 = new JButton("5");
+		n6 = new JButton("6");
+		n7 = new JButton("7");
+		n8 = new JButton("8");
+		n9 = new JButton("9");
+		dividir = new JButton("÷");
+		multiplicar = new JButton("×");
+		restar = new JButton("-");
+		suma = new JButton("+");
+		igual = new JButton("=");
+		reset = new JButton("AC");
 
-	        buttonPanel.add(button);
-	    }
+		JButton[] buttons = { n7, n8, n9, dividir, n4, n5, n6, multiplicar, n1, n2, n3, restar, reset, n0, igual,
+				suma };
+		for (JButton button : buttons) {
+			if (button == dividir || button == multiplicar || button == restar || button == suma || button == igual) {
+				setFeaturesButton(button, ButtonType.OPERATOR);
+			} else {
+				setFeaturesButton(button, ButtonType.REGULAR);
+			}
 
-	    contentPanel.add(displayPanel, BorderLayout.NORTH);
-	    contentPanel.add(buttonPanel, BorderLayout.CENTER);
-	    this.add(contentPanel);
-	    this.setVisible(true);
+			buttonPanel.add(button);
+		}
+
+		contentPanel.add(displayPanel, BorderLayout.NORTH);
+		contentPanel.add(buttonPanel, BorderLayout.CENTER);
+		this.add(contentPanel);
+		this.setVisible(true);
 	}
-
 
 	/**
 	 * Metodo que dependiendo del operador realiza una operacion o otra
@@ -147,11 +148,37 @@ public class Engine extends JFrame implements ActionListener {
 		}
 	}
 
+	/**
+	 * Metodo que limpia el display
+	 */
+	public void resetDisplay() {
+		display.setText("");
+	}
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		
-		
-		
+		Object source = e.getSource();
+		String inputText = e.getActionCommand();
+
+		if (source == reset) {
+			resetDisplay();
+		} else if (source == igual) {
+			try {
+				String[] partes = display.getText().split(" ");
+				num1 = Integer.parseInt(partes[0]);
+				operation = partes[1].charAt(0);
+				num2 = Integer.parseInt(partes[2]);
+
+				if (operation == '÷' && num2 == 0) {
+					display.setText("No se puede dividir entre 0");
+				} else {
+					operation();
+					display.setText(String.valueOf(result));
+				}
+			} catch (Exception ex) {
+				display.setText("Error");
+			}
+		}
+
 	}
 }
