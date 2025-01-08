@@ -25,8 +25,9 @@ Selecciona una operación (suma, resta, multiplicación o división).
 Ingresa otro número.
 Presiona el botón = para calcular el resultado.
 Presiona el botón C para reiniciar la operación.
-Captura de pantalla
-(C:\Users\adria\OneDrive\Desktop\CalculadoraJava\VentanaJava\src\images\calculadora.png)
+## Captura de pantalla
+
+![Calculadora funcionando](src/images/calculadora.png)
 
 
 
