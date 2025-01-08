@@ -37,8 +37,7 @@ public class Engine extends JFrame implements ActionListener {
 	 * Metodo que añade un actionListener a todos los componentes menos al frame.
 	 */
 	private void addActionEvent() {
-		JButton[] buttons = { n0, n1, n2, n3, n4, n5, n6, n7, n8, n9, dividir, multiplicar, restar, suma, igual,
-				reset };
+		JButton[] buttons = { n0, n1, n2, n3, n4, n5, n6, n7, n8, n9, dividir, multiplicar, restar, suma, igual,reset };
 		for (JButton button : buttons) {
 			button.addActionListener(this);
 		}
@@ -88,8 +87,7 @@ public class Engine extends JFrame implements ActionListener {
 		igual = new JButton("=");
 		reset = new JButton("AC");
 
-		JButton[] buttons = { n7, n8, n9, dividir, n4, n5, n6, multiplicar, n1, n2, n3, restar, reset, n0, igual,
-				suma };
+		JButton[] buttons = { n7, n8, n9, dividir, n4, n5, n6, multiplicar, n1, n2, n3, restar, reset, n0, igual,suma };
 		for (JButton button : buttons) {
 			if (button == dividir || button == multiplicar || button == restar || button == suma || button == igual) {
 				setFeaturesButton(button, ButtonType.OPERATOR);
@@ -154,7 +152,12 @@ public class Engine extends JFrame implements ActionListener {
 	public void resetDisplay() {
 		display.setText("");
 	}
-
+	
+	/**
+	 * Metodo que hace visible y funcional las operaciones en el display
+	 * 
+	 * 
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
@@ -178,7 +181,18 @@ public class Engine extends JFrame implements ActionListener {
 			} catch (Exception ex) {
 				display.setText("Error");
 			}
-		}
+		} else if (source == suma || source == dividir || source == multiplicar) {
+	        display.setText(display.getText() + " " + inputText + " ");
+	    } else if (source == restar) {
+	        String currentText = display.getText();
+	        if (currentText.isEmpty() || currentText.endsWith(" ")) {
+	            display.setText(currentText + "-");
+	        } else {
+	            display.setText(currentText + " " + inputText + " ");
+	        }
+	    } else {
+	        display.setText(display.getText() + inputText);
+	    }
+	}
 
 	}
-}
