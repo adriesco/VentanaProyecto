@@ -26,8 +26,7 @@ Ingresa otro número.
 Presiona el botón = para calcular el resultado.
 Presiona el botón C para reiniciar la operación.
 Captura de pantalla
-(Incluye aquí una captura de pantalla de tu calculadora funcionando, si es posible).
-![Calculadora funcionando]("C:\Users\adria\Downloads\calcu.png")
+(src/images/calculadora.png)
 
 
 
