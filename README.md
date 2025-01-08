@@ -26,7 +26,7 @@ Ingresa otro número.
 Presiona el botón = para calcular el resultado.
 Presiona el botón C para reiniciar la operación.
 Captura de pantalla
-(src/images/calculadora.png)
+(C:\Users\adria\OneDrive\Desktop\CalculadoraJava\VentanaJava\src\images\calculadora.png)
 
 
 
