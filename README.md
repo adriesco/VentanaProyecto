@@ -27,7 +27,8 @@ Presiona el botón = para calcular el resultado.
 Presiona el botón C para reiniciar la operación.
 ## Captura de pantalla
 
-![Calculadora funcionando](src/images/calculadora.png)
+![Calculadora funcionando]
+![Calculadora](calculadora2.png)
 
 
 
